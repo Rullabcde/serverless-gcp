@@ -5,7 +5,7 @@ steps:
       [
         "build",
         "-t",
-        "asia-southeast2-docker.pkg.dev/$PROJECT_ID/my-repo/my-app:$COMMIT_SHA",
+        "asia-southeast2-docker.pkg.dev/$PROJECT_ID/serverless/app:$COMMIT_SHA",
         ".",
       ]
     id: "Build Image"
@@ -15,7 +15,7 @@ steps:
     args:
       [
         "push",
-        "asia-southeast2-docker.pkg.dev/$PROJECT_ID/my-repo/my-app:$COMMIT_SHA",
+        "asia-southeast2-docker.pkg.dev/$PROJECT_ID/serverless/app:$COMMIT_SHA",
       ]
     id: "Push Image"
 
@@ -28,7 +28,7 @@ steps:
         "CRITICAL",
         "--exit-code",
         "1",
-        "asia-southeast2-docker.pkg.dev/$PROJECT_ID/my-repo/my-app:$COMMIT_SHA",
+        "asia-southeast2-docker.pkg.dev/$PROJECT_ID/serverless/app:$COMMIT_SHA",
       ]
     id: "Security Scan"
 
@@ -40,7 +40,7 @@ steps:
       - "deploy"
       - "my-app-service"
       - "--image"
-      - "asia-southeast2-docker.pkg.dev/$PROJECT_ID/my-repo/my-app:$COMMIT_SHA"
+      - "asia-southeast2-docker.pkg.dev/$PROJECT_ID/serverless/app:$COMMIT_SHA"
       - "--region"
       - "asia-southeast2"
       - "--platform"
@@ -49,7 +49,7 @@ steps:
     id: "Deploy to Cloud Run"
 
 images:
-  - "asia-southeast2-docker.pkg.dev/$PROJECT_ID/my-repo/my-app:$COMMIT_SHA"
+  - "asia-southeast2-docker.pkg.dev/$PROJECT_ID/serverless/app:$COMMIT_SHA"
 
 options:
   logging: CLOUD_LOGGING_ONLY
