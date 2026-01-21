@@ -67,7 +67,7 @@ app.get("/", (req, res) => {
     </head>
     <body>
         <div class="container">
-            <h1>DevSecOps Pipeline Status</h1>
+            <h1>DevSecOps Pipeline Status #1</h1>
             <div>
                 <span class="badge badge-green">BUILD PASS</span>
                 <span class="badge badge-green">SECURE</span>
